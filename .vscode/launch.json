@@ -3,7 +3,7 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Run JavaFX",
+      "name": "Run Expense Tracker GUI",
       "request": "launch",
       "mainClass": "MainApp",
       "vmArgs": "--module-path \"C:/javafx-sdk-21.0.10/lib\" --add-modules javafx.controls,javafx.fxml"

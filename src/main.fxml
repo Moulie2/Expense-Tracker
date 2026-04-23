@@ -1,26 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<VBox spacing="10" alignment="CENTER"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="Controller.UIController">
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controller.UIController"
+            prefHeight="640.0"
+            prefWidth="980.0">
+    <top>
+        <VBox spacing="10.0" style="-fx-background-color: linear-gradient(to right, #0f172a, #1d4ed8);">
+            <padding>
+                <Insets top="20.0" right="24.0" bottom="20.0" left="24.0" />
+            </padding>
+            <Label text="Expense Tracker" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;" />
+            <Label fx:id="totalLabel" style="-fx-font-size: 16px; -fx-text-fill: #dbeafe;" />
+        </VBox>
+    </top>
 
-    <Label text="Expense Tracker" />
+    <left>
+        <VBox spacing="12.0" prefWidth="310.0" style="-fx-background-color: #f8fafc;">
+            <padding>
+                <Insets top="20.0" right="18.0" bottom="20.0" left="18.0" />
+            </padding>
+            <Label text="Add Expense" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #0f172a;" />
+            <TextField fx:id="titleField" promptText="Title" />
+            <TextField fx:id="categoryField" promptText="Category" />
+            <TextField fx:id="amountField" promptText="Amount" />
+            <DatePicker fx:id="datePicker" />
+            <TextArea fx:id="noteField" promptText="Note" prefRowCount="4" wrapText="true" />
+            <HBox spacing="10.0">
+                <Button text="Add Expense" onAction="#handleAdd" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold;" />
+                <Button text="Clear" onAction="#handleClear" />
+            </HBox>
+            <Button text="Delete Selected" onAction="#handleDelete" style="-fx-background-color: #dc2626; -fx-text-fill: white; -fx-font-weight: bold;" />
+            <Label fx:id="statusLabel" wrapText="true" style="-fx-text-fill: #334155;" />
+        </VBox>
+    </left>
 
-    <TextField fx:id="titleField" promptText="Title"/>
-    <TextField fx:id="categoryField" promptText="Category"/>
-    <TextField fx:id="amountField" promptText="Amount"/>
-
-    <Button text="Add Expense" onAction="#handleAdd"/>
-
-    <TableView fx:id="tableView" prefHeight="300" prefWidth="400">
-        <columns>
-            <TableColumn fx:id="titleCol" text="Title" prefWidth="130"/>
-            <TableColumn fx:id="categoryCol" text="Category" prefWidth="130"/>
-            <TableColumn fx:id="amountCol" text="Amount" prefWidth="120"/>
-        </columns>
-    </TableView>
-
-</VBox>
+    <center>
+        <TableView fx:id="tableView">
+            <columns>
+                <TableColumn fx:id="idCol" text="ID" maxWidth="70.0" />
+                <TableColumn fx:id="titleCol" text="Title" />
+                <TableColumn fx:id="categoryCol" text="Category" />
+                <TableColumn fx:id="amountCol" text="Amount" />
+                <TableColumn fx:id="dateCol" text="Date" />
+                <TableColumn fx:id="noteCol" text="Note" />
+            </columns>
+            <padding>
+                <Insets top="16.0" right="16.0" bottom="16.0" left="16.0" />
+            </padding>
+        </TableView>
+    </center>
+</BorderPane>
