@@ -1,24 +1,17 @@
 # Expense Tracker
 
-A simple console-based expense tracker built in Java.
+A Java-based expense tracker application that allows users to record, manage, and track daily expenses.
 
 ## Features
+- Add expenses
+- Store expense data using JSON
+- Simple file handling
+- MVC structure
 
-- Add a new expense with title, category, amount, date, and note
-- View all recorded expenses
-- Show total and average spending
-- Filter expenses by category
-- Delete an expense by id
-- Persist expense data in `data/expenses.json`
+## Technologies Used
+- Java
+- JSON
+- File Handling
 
-## Compile
-
-```powershell
-javac -d out src\App.java src\Controller\MainController.java src\Model\Expense.java src\util\FileHandler.java
-```
-
-## Run
-
-```powershell
-java -cp out App
-```
+## Author
+Moulie
